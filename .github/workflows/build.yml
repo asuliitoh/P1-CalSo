@@ -3,8 +3,15 @@ on:
   push:
     branches:
       - main
+      - rama_asuliitoh
+      - rama_jiahui
+
   pull_request:
     types: [opened, synchronize, reopened]
+    branches:
+       - main
+       - rama_asuliitoh
+       - rama_jiahui
 jobs:
   build:
     name: Build and analyze
