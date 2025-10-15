@@ -1,14 +1,11 @@
 package juego.geometria;
 
-import java.lang.Math;
-import java.util.Random;
-
 /** La clase Punto representa un punto inmutable en el espacio bidimensional.
  *  Una vez creado el objeto no puede cambiar de estado.
  *
  */
 public class Punto {
-    public final static int defaultValue = 0;
+    public static final int DEFAULTVALUE = 0;
 
      final int x;
      final int y;
@@ -48,7 +45,7 @@ public class Punto {
 	/** Devuelve un nuevo objeto Posicion que representa el valor de la posición
 	 *  adyacente a la instancia actual en la dirección pasada como parámetro.
 	 */
-	public Punto Adyacente(Direccion direccion) {
+	public Punto adyacente(Direccion direccion) {
 
 		switch (direccion) {
 		case DERECHA:
@@ -72,14 +69,14 @@ public class Punto {
 	 */
 	public Boolean isAdyacente(Punto otra, Direccion direccion) {
 
-	    return otra.equals(this.Adyacente(direccion));
+	    return otra.equals(this.adyacente(direccion));
 	}
 
 	/**
 	 * Devuelve la situación relativa de la instancia actual respecto a la posición que se pasa como parámetro.
 	 * En el caso de no ser posiciones adyacentes el valor de retorno es null. 
 	 */
-	public Direccion situacion_relativa(Punto otra){
+	public Direccion situacionRelativa(Punto otra){
 	    int difX = Math.abs(x - otra.x);
 	    int difY = Math.abs(y - otra.y);
 
@@ -110,12 +107,7 @@ public class Punto {
 	    }
 	}
 
-	/** Calcula la distancia entre dos posiciones.
-	 *
-	 */
-	private double distancia (Punto posicion) {
-		return Math.sqrt(Math.pow(this.x-posicion.x, 2)+Math.pow(this.y-posicion.y, 2));
-	}
+
 
 	@Override
 	public String toString() {
@@ -123,27 +115,17 @@ public class Punto {
 	}
 
 	
-	public boolean equals(Punto obj) {
-		if (this == obj)
-			return true;
-
+	public boolean equals(Object obj) {
+		if (this == obj) return true;
+		if (! (obj instanceof Punto)) return false;
 		Punto other = (Punto) obj;
-		
 		return  (x == other.x && y == other.y);
 	}
 
 	@Override
-	public Punto clone(){
-		Punto copia;
-
-		try{
-			copia = (Punto)super.clone();
-			return copia;
-		}
-		catch(CloneNotSupportedException e){ }
-
-		return null;
+	public int hashCode() {
+		return java.util.Objects.hash(this.x, this.y);
 	}
-
+	
 }
 
