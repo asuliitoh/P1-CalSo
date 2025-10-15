@@ -30,7 +30,7 @@ Direccion[] arrayDirecciones = Direccion.values();
 ---
 
 
-## ✅ Disconformidad 2  
+## Disconformidad 2  
 
 **Línea:** 21  
 **Archivo:** `Direccion.java`  
