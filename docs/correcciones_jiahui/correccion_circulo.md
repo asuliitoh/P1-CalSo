@@ -109,7 +109,7 @@ circulo.java → Circulo.java
 
 ## Disconformidad 4  
 
-**Línea:** 13  
+**Línea:** 14  
 **Archivo:** `circulo.java`  
 **Ubicación:** `/P1-CalSo/p1-calso/src/main/java/juego/geometria`  
 
