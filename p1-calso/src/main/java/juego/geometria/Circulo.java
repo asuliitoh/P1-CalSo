@@ -1,17 +1,22 @@
 package juego.geometria;
 
-public class circulo {
+public class Circulo {
     
-	public static int DEFAULT_RADIO = 5;
+	private static final int DEFAULT_RADIO = 5;
     
     private Punto centro;
     private int radio;
+    
+    public static int getDefaultRadio() {
+        return DEFAULT_RADIO;
+    }
 
-    public circulo(Punto centroIni, int radioIni){
+    public Circulo(Punto centroIni, int radioIni){
+        centro = new Punto(centroIni);
         radio = radioIni;
     }
 
-    public circulo(){
+    public Circulo(){
         this(new Punto(), DEFAULT_RADIO);
     }
     
